@@ -1,6 +1,6 @@
 <template>
   <select>
-    <option v-for="genre in albums" :key="album.title" v-model=""></option>
+    <option v-for="option in options" :key="option.id" :value="option.genre">{{option.text}}</option>
   </select>
 </template>
 
@@ -8,8 +8,9 @@
 export default {
     name: 'BaseSelect',
     props: {
-        albums: Array
-    }
+        options: Array
+    },
+    
 }
 </script>
 
