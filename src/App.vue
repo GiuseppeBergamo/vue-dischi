@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <BaseHeader></BaseHeader>
-    <TheMain></TheMain>
+    <BaseHeader :albums="albums"></BaseHeader>
+    <TheMain :albums="albums"></TheMain>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import BaseHeader from './components/BaseHeader.vue';
 import TheMain from './components/TheMain.vue';
 
@@ -14,7 +15,18 @@ export default {
   components: {
     BaseHeader,
     TheMain
-}
+  },
+  data(){
+        return {
+            albums: []
+        }
+    },
+    mounted(){
+        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then((res) => {
+            this.albums = res.data.response;
+        })
+    }
 }
 </script>
 
