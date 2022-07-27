@@ -9,23 +9,14 @@
 </template>
 
 <script>
-import axios from 'axios';
 import AlbumCard from './AlbumCard.vue';
 export default {
     name: 'AlbumSection',
     components: {
         AlbumCard,
     },
-    data(){
-        return {
-            albums: []
-        }
-    },
-    mounted(){
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then((res) => {
-            this.albums = res.data.response;
-        })
+    props: {
+        albums: Array
     }
 }
 </script>

@@ -1,12 +1,18 @@
 <template>
-  <header class="container-fluid py-1 d-flex flex-start">
+  <header class="container-fluid py-1 d-flex justify-content-between">
     <img src="https://th.bing.com/th/id/R.2ebc6c77ba84d7194d4a8f6a7334571e?rik=2ffoY4RHjXWJ2w&pid=ImgRaw&r=0" alt="spotify-logo" class="img-fluid">
+    <BaseSelect :albums="albums"></BaseSelect>
   </header>
 </template>
 
 <script>
+import BaseSelect from "./BaseSelect.vue";
 export default {
-    name: 'BaseHeader'
+    name: "BaseHeader",
+    props: {
+        albums: Array
+    },
+    components: { BaseSelect }
 }
 </script>
 

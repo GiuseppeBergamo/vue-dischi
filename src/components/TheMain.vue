@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container py-4">
-        <AlbumSection></AlbumSection>
+        <AlbumSection :albums="albums"></AlbumSection>
     </div>
   </main>
 </template>
@@ -12,6 +12,9 @@ export default {
     name: 'TheMain',
     components: {
         AlbumSection,
+    },
+    props: {
+        albums: Array
     }
 }
 </script>
